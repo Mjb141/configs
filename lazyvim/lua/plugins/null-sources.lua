@@ -1,14 +1,15 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "mason.nvim" },
   opts = function()
-    local nls = require("null-ls")
+    local nls = require("none-ls")
     return {
-      root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+      root_dir = require("none-ls.utils").root_pattern(".none-ls-root", ".neoconf.json", "Makefile", ".git"),
       sources = {
         nls.builtins.diagnostics.ruff,
-        nls.builtins.diagnostics.black,
+        nls.builtins.formatting.black,
+        nls.builtins.formatting.prettierd,
       },
     }
   end,
