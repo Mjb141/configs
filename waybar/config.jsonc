@@ -73,10 +73,10 @@
     "format": "{icon} {volume}%",
     "tooltip": false,
     "format-muted": " Muted",
-    "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
+    "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc",
-    "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
     "scroll-step": 5,
     "format-icons": {
       "headphone": "",
