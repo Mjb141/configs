@@ -6,7 +6,7 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 50,
-  "modules-left": ["custom/weather", "wlr/workspaces"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "clock",
@@ -16,10 +16,8 @@
     "pulseaudio#microphone",
     "tray"
   ],
-  "include": ["~/.config/HyprV/waybar/conf/mesu.jsonc"],
-  "hyprland/window": {
-    "format": "{}"
-  },
+  "include": [],
+  // LEFT
   "hyprland/workspaces": {
     "format": "{name}",
     //"format": "{name}: {icon}",
@@ -45,46 +43,31 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
-  "wlr/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    }
+  // CENTRE
+  "hyprland/window": {
+    "format": "{}"
   },
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10
+  // RIGHT
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{: %A, %e %B %Y}"
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-scroll-up": "~/.config/HyprV/waybar/scripts/brightness --inc",
-    "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec",
-    "min-length": 6
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
   },
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  "temperature": {
+    "thermal-zone": 1,
+    "format": "",
+    "format-alt-click": "click-right",
+    "format-alt": " {temperatureC}°C",
+    "critical-threshold": 70,
+    "format-critical": " {temperatureC}°C",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -115,21 +98,8 @@
     "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
     "scroll-step": 5
   },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "{ipaddr}/{cidr}",
-    "tooltip-format": "{essid} - {ifname} via {gwaddr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
-  },
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "", // an empty format will hide the module
-    "format-connected": " {num_connections}",
-    "tooltip-format": "{device_alias}",
-    "tooltip-format-connected": " {device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}"
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
   }
 }
