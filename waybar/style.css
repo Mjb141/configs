@@ -71,9 +71,7 @@ tooltip {
 }
 
 /* close to left */
-#temperature,
-#backlight,
-#custom-myhyprv {
+#temperature {
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -123,9 +121,8 @@ tooltip {
 
 #network {
   color: #f9e2af;
-  border-radius: 10px 0px 0px 10px;
-  border-left: 0px;
-  border-right: 0px;
+  border-radius: 10px 10px 10px 10px;
+  margin-right: 10px;
 }
 
 #bluetooth {
