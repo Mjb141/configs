@@ -11,25 +11,40 @@
   "modules-right": [
     "clock",
     "network",
-    "bluetooth",
     "temperature",
-    "custom/power_profile",
     "pulseaudio",
     "pulseaudio#microphone",
-    "tray",
-    "custom/myhyprv",
-    "custom/light_dark"
+    "tray"
   ],
-
-  "include": [
-    "~/.config/HyprV/waybar/conf/mesu.jsonc",
-    "~/.config/HyprV/waybar/conf/hyprv-util.jsonc"
-  ],
-
+  "include": ["~/.config/HyprV/waybar/conf/mesu.jsonc"],
   "hyprland/window": {
     "format": "{}"
   },
-
+  "hyprland/workspaces": {
+    "format": "{name}",
+    //"format": "{name}: {icon}",
+    //"format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "main  ",
+      "2": "2  ",
+      "3": "3  ",
+      "4": "4  ",
+      "5": "5  ",
+      "6": "6  ",
+      "7": "7  ",
+      "8": "8  ",
+      "9": "9  ",
+      "10": " 10 ",
+      "focused": "",
+      "default": ""
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
   "wlr/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -47,12 +62,10 @@
       "10": []
     }
   },
-
   "tray": {
     "icon-size": 18,
     "spacing": 10
   },
-
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
@@ -61,7 +74,6 @@
     "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec",
     "min-length": 6
   },
-
   "battery": {
     "states": {
       "good": 95,
@@ -74,7 +86,6 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
-
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "tooltip": false,
@@ -94,7 +105,6 @@
       "default": ["", "", ""]
     }
   },
-
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",
@@ -105,7 +115,6 @@
     "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
     "scroll-step": 5
   },
-
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "  {signalStrength}%",
@@ -115,7 +124,6 @@
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
   },
-
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "", // an empty format will hide the module
