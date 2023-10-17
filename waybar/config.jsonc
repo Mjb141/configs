@@ -20,26 +20,10 @@
   // LEFT
   "hyprland/workspaces": {
     "format": "{name}",
-    //"format": "{name}: {icon}",
-    //"format": "{icon}",
     "show-special": false,
     "on-click": "activate",
     "all-outputs": true,
     "sort-by-number": true,
-    "format-icons": {
-      "1": "main  ",
-      "2": "2  ",
-      "3": "3  ",
-      "4": "4  ",
-      "5": "5  ",
-      "6": "6  ",
-      "7": "7  ",
-      "8": "8  ",
-      "9": "9  ",
-      "10": " 10 ",
-      "focused": "",
-      "default": ""
-    },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
@@ -92,10 +76,10 @@
     "format": "{format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "  Muted",
-    "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
+    "on-click": "pamixer --default-source -t",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
-    "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
     "scroll-step": 5
   },
   "tray": {
