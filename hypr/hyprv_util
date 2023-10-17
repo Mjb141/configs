@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set_current_background() {
+	swww img ~/Documents/Backgrounds/chdbi07k5kta1.jpg
+}
+
+update_theme() {
+	xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita-dark"
+	gsettings set org.gnome.desktop.interface icon-theme "Adwaita-dark"
+
+	xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
+	gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+}
+
+#Set measuring system: M=metric I=imperial
+SET_MESU="M"
+
+set_current_background
+update_theme
