@@ -1,13 +1,12 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = {
-        enabled = true,
-      },
-      codelens = {
-        enabled = true,
-      },
-    },
-  },
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				ruff = {
+					enabled = true,
+				},
+			},
+		},
+	},
 }
